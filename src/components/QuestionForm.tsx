@@ -64,6 +64,8 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
     switch (question.type) {
       case 'textarea':
         return 'Enter your answer...';
+      case 'domain':
+        return 'Enter domain (e.g., example.com)...';
       case 'email':
         return 'Enter email address...';
       case 'url':
@@ -77,8 +79,43 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
 
 
 
+  // Validation functions
+  const validateDomain = (domain: string): boolean => {
+    const domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]?\.[a-zA-Z]{2,}$/;
+    return domainRegex.test(domain);
+  };
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const getValidationError = (): string | null => {
+    if (!inputValue || inputValue === '') return null;
+    
+    switch (question.type) {
+      case 'domain':
+        if (!validateDomain(inputValue)) {
+          return 'Please enter a valid domain with extension (e.g., example.com, mydomain.net)';
+        }
+        break;
+      case 'email':
+        if (!validateEmail(inputValue)) {
+          return 'Please enter a valid email address (e.g., user@domain.com)';
+        }
+        break;
+    }
+    return null;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const validationError = getValidationError();
+    if (validationError) {
+      return; // Don't submit if validation fails
+    }
+    
     // Allow submission if the field is not required OR if it has a value
     if (!question.required || (inputValue !== undefined && inputValue !== '')) {
       onAnswer(question.id, inputValue || '');
@@ -99,6 +136,11 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
   };
 
   const handleComplete = () => {
+    const validationError = getValidationError();
+    if (validationError) {
+      return; // Don't complete if validation fails
+    }
+    
     // Allow completion if the field is not required OR if it has a value
     if (!question.required || (inputValue !== undefined && inputValue !== '')) {
       onAnswer(question.id, inputValue || '');
@@ -118,6 +160,19 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             onChange={(e) => setInputValue(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             rows={4}
+            placeholder={getPlaceholder()}
+            required={question.required}
+          />
+        );
+      
+      case 'domain':
+        return (
+          <input
+            ref={inputRef as React.RefObject<HTMLInputElement>}
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -199,6 +254,11 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         {renderInput()}
+        {getValidationError() && (
+          <div className="mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2">
+            {getValidationError()}
+          </div>
+        )}
       </div>
 
       <div className="flex items-center justify-between">

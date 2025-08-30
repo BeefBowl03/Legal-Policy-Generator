@@ -31,10 +31,10 @@ const PolicyGenerator: React.FC<PolicyGeneratorProps> = ({ setPolicyData }) => {
         : `https://${formData.primaryWebsiteDomain}`;
       
       if (!formData.faqPageURL || formData.faqPageURL === '') {
-        setFormData(prev => ({ ...prev, faqPageURL: `${baseUrl}/faq` }));
+        setFormData(prev => ({ ...prev, faqPageURL: baseUrl }));
       }
       if (!formData.returnPolicyURL || formData.returnPolicyURL === '') {
-        setFormData(prev => ({ ...prev, returnPolicyURL: `${baseUrl}/return-policy` }));
+        setFormData(prev => ({ ...prev, returnPolicyURL: `${baseUrl}/return-and-refund-policy` }));
       }
       if (!formData.termsOfServicePageURL || formData.termsOfServicePageURL === '') {
         setFormData(prev => ({ ...prev, termsOfServicePageURL: `${baseUrl}/terms-of-service` }));
@@ -44,6 +44,11 @@ const PolicyGenerator: React.FC<PolicyGeneratorProps> = ({ setPolicyData }) => {
       }
     }
   }, [formData.shipToCountries, formData.primaryWebsiteDomain]);
+
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
 
   const handleAnswer = (questionId: number, answer: any) => {
     const question = questions.find(q => q.id === questionId);

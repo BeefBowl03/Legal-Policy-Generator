@@ -46,7 +46,7 @@ export interface Question {
   field: keyof PolicyData;
   question: string;
   guidance: string;
-  type: 'text' | 'email' | 'url' | 'number' | 'select' | 'textarea';
+  type: 'text' | 'email' | 'url' | 'number' | 'select' | 'textarea' | 'domain';
   required: boolean;
   defaultValue?: any;
   options?: string[];

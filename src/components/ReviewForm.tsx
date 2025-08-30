@@ -33,13 +33,18 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ formData, onBack, onComplete, o
 
   return (
     <div className="space-y-8">
-      <div className="text-center">
+      <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           Review Your Information
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-600 mb-4">
           Please review all your answers before proceeding to generate policies.
         </p>
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
+          <p className="text-blue-800 font-medium">
+            💡 <strong>Tip:</strong> Click on any answer below to edit it. You'll be taken back to that specific question.
+          </p>
+        </div>
       </div>
 
       <div className="space-y-8">
@@ -60,12 +65,12 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ formData, onBack, onComplete, o
                         {question.guidance}
                       </p>
                       <div className="text-sm text-gray-700">
-                        <span className="font-medium">Answer: </span>
+                        <span className="font-semibold text-base text-blue-700">Edit your Answer: </span>
                         <button
                           onClick={() => onEditQuestion(question.id)}
                           className={`${
                             formData[question.field] ? 'text-green-700 hover:text-green-800' : 'text-red-600 hover:text-red-700'
-                          } underline cursor-pointer hover:bg-gray-100 px-2 py-1 rounded transition-colors`}
+                          } underline cursor-pointer hover:bg-blue-50 hover:border hover:border-blue-200 px-3 py-2 rounded-md transition-all duration-200 text-base font-medium transform hover:scale-105 hover:shadow-sm`}
                           title="Click to edit this answer"
                         >
                           {getDisplayValue(question.field, formData[question.field])}

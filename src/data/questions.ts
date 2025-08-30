@@ -24,8 +24,8 @@ export const questions: Question[] = [
     id: 3,
     field: 'primaryWebsiteDomain',
     question: 'What is your primary website domain?',
-    guidance: 'Type just the domain, such as SaunaHavenUSA.com.',
-    type: 'text',
+    guidance: 'Type just the domain, such as SaunaHavenUSA.com. Must include a valid domain extension (e.g., .com, .net, .org).',
+    type: 'domain',
     required: true,
     group: 'Business Information'
   },
@@ -51,7 +51,7 @@ export const questions: Question[] = [
     id: 6,
     field: 'mainContactEmail',
     question: 'What is your main contact e-mail address?',
-    guidance: 'For example, info@saunahavenusa.com.',
+    guidance: 'For example, info@saunahavenusa.com. Must be a valid email format.',
     type: 'email',
     required: true,
     group: 'Business Information'
@@ -295,7 +295,7 @@ export const questions: Question[] = [
     id: 30,
     field: 'returnPolicyURL',
     question: 'What is the full URL of your Return and Refund Policy?',
-    guidance: 'This will be auto-filled with your domain. You can modify it if needed.',
+    guidance: 'This will be auto-filled with your domain + /return-and-refund-policy. You can modify it if needed.',
     type: 'url',
     required: true,
     defaultValue: 'AUTO_FILL',
