@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { PolicyData } from '../types';
 import { questions } from '../data/questions';
 

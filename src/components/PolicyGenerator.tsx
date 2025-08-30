@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { PolicyData } from '../types';
 import { questions, getDefaultPolicyData } from '../data/questions';
 import QuestionForm from './QuestionForm';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { PolicyData } from '../types';
 import { policyTemplates, generatePolicyHTML } from '../data/policyTemplates';
 

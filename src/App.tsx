@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import PolicyGenerator from './components/PolicyGenerator'
 import { PolicyData } from './types'
 
