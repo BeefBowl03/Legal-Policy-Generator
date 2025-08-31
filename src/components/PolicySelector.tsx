@@ -26,77 +26,76 @@ const PolicySelector: React.FC<PolicySelectorProps> = ({ policyData, onBack }) =
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
-
+    <div className="max-w-6xl mx-auto content-padding">
 
       {/* Final Instructions */}
-      <div className="mb-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-blue-900 mb-2">🎉 All Set!</h3>
-          <p className="text-blue-700 text-lg">Here's what to do next:</p>
+      <div className="mb-10 bg-gradient-to-br from-info-light/20 to-info-light/10 border border-info-dark/30 rounded-2xl p-8 backdrop-blur-sm shadow-premium">
+        <div className="text-center mb-8">
+          <h3 className="text-3xl font-bold text-info-dark mb-4">🎉 All Set!</h3>
+          <p className="text-info-dark text-xl">Here's what to do next:</p>
         </div>
         
         <div className="max-w-3xl mx-auto">
-          <ol className="space-y-4 text-left">
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+          <ol className="space-y-6 text-left">
+            <li className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">1</span>
               <div>
-                <span className="font-medium text-blue-900">In Shopify admin, go to</span>
-                <span className="text-blue-700"> <strong>Online Store → Pages</strong>.</span>
+                <span className="font-medium text-info-dark text-lg">In Shopify admin, go to</span>
+                <span className="text-info-dark text-lg"> <strong>Online Store → Pages</strong>.</span>
               </div>
             </li>
             
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+            <li className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">2</span>
               <div>
-                <span className="font-medium text-blue-900">Click</span>
-                <span className="text-blue-700"> <strong>Add page</strong>, name it after the policy (e.g. "Shipping Policy").</span>
+                <span className="font-medium text-info-dark text-lg">Click</span>
+                <span className="text-info-dark text-lg"> <strong>Add page</strong>, name it after the policy (e.g. "Shipping Policy").</span>
               </div>
             </li>
             
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+            <li className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">3</span>
               <div>
-                <span className="font-medium text-blue-900">Click the</span>
-                <span className="text-blue-700"> <strong>&lt;&gt;</strong> (Show HTML) icon in the top‑right of the editor.</span>
+                <span className="font-medium text-info-dark text-lg">Click the</span>
+                <span className="text-info-dark text-lg"> <strong>&lt;&gt;</strong> (Show HTML) icon in the top‑right of the editor.</span>
               </div>
             </li>
             
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+            <li className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">4</span>
               <div>
-                <span className="font-medium text-blue-900">Paste the generated HTML code into the HTML view.</span>
+                <span className="font-medium text-info-dark text-lg">Paste the generated HTML code into the HTML view.</span>
               </div>
             </li>
             
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
+            <li className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">5</span>
               <div>
-                <span className="font-medium text-blue-900">Click</span>
-                <span className="text-blue-700"> <strong>&lt;&gt;</strong> again to return to normal view and confirm rendering.</span>
+                <span className="font-medium text-info-dark text-lg">Click</span>
+                <span className="text-info-dark text-lg"> <strong>&lt;&gt;</strong> again to return to normal view and confirm rendering.</span>
               </div>
             </li>
             
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">6</span>
+            <li className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">6</span>
               <div>
-                <span className="font-medium text-blue-900">Click</span>
-                <span className="text-blue-700"> <strong>Save</strong>.</span>
+                <span className="font-medium text-info-dark text-lg">Click</span>
+                <span className="text-info-dark text-lg"> <strong>Save</strong>.</span>
               </div>
             </li>
           </ol>
         </div>
         
-        <div className="mt-6 text-center">
-          <p className="text-blue-600 text-sm">
+        <div className="mt-8 text-center">
+          <p className="text-info-dark text-base">
             💡 <strong>Tip:</strong> You can now copy the HTML code below and follow these steps to add your policy to Shopify!
           </p>
         </div>
       </div>
 
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Generated Policies</h2>
-        <p className="text-gray-600 text-lg">Review and copy the HTML code for each policy below.</p>
+      <div className="mb-10">
+        <h2 className="text-4xl font-bold text-text-primary mb-6">Your Generated Policies</h2>
+        <p className="text-text-secondary text-xl leading-relaxed">Review and copy the HTML code for each policy below.</p>
       </div>
 
       <div className="space-y-8">
@@ -104,23 +103,23 @@ const PolicySelector: React.FC<PolicySelectorProps> = ({ policyData, onBack }) =
           const generatedHTML = generatePolicyHTML(template.htmlTemplate, policyData);
           
           return (
-            <div key={template.id} className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+            <div key={template.id} className="premium-card overflow-hidden">
               {/* Policy Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
-                <h3 className="text-2xl font-bold text-white">{template.name}</h3>
-                <p className="text-blue-100 mt-1">{template.description}</p>
+              <div className="bg-gradient-to-r from-primary-600 to-primary-500 px-6 py-4">
+                <h3 className="text-2xl font-bold text-black">{template.name}</h3>
+                <p className="text-black/80 mt-1 font-medium">{template.description}</p>
               </div>
               
               {/* Policy Content */}
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">HTML Code</span>
+                  <span className="text-sm font-medium text-text-muted uppercase tracking-wide">HTML Code</span>
                   <button
                     onClick={() => handleCopyPolicy(template.id)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                       copiedPolicy === template.id
-                        ? 'bg-green-100 text-green-700 border border-green-200'
-                        : 'bg-blue-100 text-blue-700 hover:bg-blue-200 border border-blue-200'
+                        ? 'bg-success-light/20 text-success-dark border border-success-dark/30'
+                        : 'bg-background-elevated text-text-primary hover:bg-background-accent hover:border-primary-500 border border-border-elevated'
                     }`}
                   >
                     {copiedPolicy === template.id ? (
@@ -143,9 +142,9 @@ const PolicySelector: React.FC<PolicySelectorProps> = ({ policyData, onBack }) =
                 </div>
                 
                 {/* HTML Code Display */}
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 max-h-96 overflow-y-auto">
-                  <pre className="text-sm text-gray-800 whitespace-pre-wrap break-words">
-                    <code>{generatedHTML}</code>
+                <div className="bg-background-elevated border border-border-subtle rounded-lg p-4 max-h-96 overflow-y-auto">
+                  <pre className="text-sm text-text-primary whitespace-pre-wrap break-words">
+                    <code className="text-text-primary">{generatedHTML}</code>
                   </pre>
                 </div>
               </div>
@@ -157,7 +156,7 @@ const PolicySelector: React.FC<PolicySelectorProps> = ({ policyData, onBack }) =
       <div className="mt-8 text-center">
         <button
           onClick={onBack}
-          className="bg-gray-600 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium"
+          className="bg-background-elevated text-text-primary px-8 py-3 rounded-lg hover:bg-background-accent hover:border-primary-500 border border-border-elevated transition-all duration-200 font-medium"
         >
           ← Back to Review
         </button>

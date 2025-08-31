@@ -158,10 +158,10 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             ref={inputRef as React.RefObject<HTMLTextAreaElement>}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            rows={4}
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
+            rows={4}
           />
         );
       
@@ -172,7 +172,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -185,7 +185,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="email"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -198,7 +198,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="url"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -211,7 +211,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -223,12 +223,12 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             ref={inputRef as React.RefObject<HTMLSelectElement>}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary transition-all duration-200"
             required={question.required}
           >
-            <option value="">Select an option...</option>
+            <option value="" className="bg-background-elevated text-text-primary">Select an option...</option>
             {question.options?.map((option, index) => (
-              <option key={index} value={option}>
+              <option key={index} value={option} className="bg-background-elevated text-text-primary">
                 {option}
               </option>
             ))}
@@ -242,7 +242,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -255,7 +255,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
       <div>
         {renderInput()}
         {getValidationError() && (
-          <div className="mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2">
+          <div className="mt-3 text-sm text-error-dark bg-error-light/10 border border-error-dark/30 rounded-lg px-4 py-3 backdrop-blur-sm">
             {getValidationError()}
           </div>
         )}
@@ -267,7 +267,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             <button
               type="button"
               onClick={onBack}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="px-6 py-3 text-base font-medium text-text-primary bg-background-elevated border border-border-elevated rounded-lg hover:bg-background-accent hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary transition-all duration-200"
             >
               {isEditing ? 'Cancel Edit' : 'Back'}
             </button>
@@ -277,7 +277,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             <button
               type="button"
               onClick={handleSkip}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="px-6 py-3 text-base font-medium text-text-primary bg-background-elevated border border-border-elevated rounded-lg hover:bg-background-accent hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary transition-all duration-200"
             >
               Skip
             </button>
@@ -290,7 +290,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
               type="button"
               onClick={handleComplete}
               disabled={question.required && (!inputValue || inputValue === '')}
-              className="px-6 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105"
             >
               Complete
             </button>
@@ -298,7 +298,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             <button
               type="submit"
               disabled={question.required && (!inputValue || inputValue === '')}
-              className="px-6 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105"
             >
               Next
             </button>

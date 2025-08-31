@@ -126,22 +126,22 @@ const PolicyGenerator: React.FC<PolicyGeneratorProps> = ({ setPolicyData }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto content-padding">
       {/* Progress Bar */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-700">
+      <div className="mb-10">
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-lg font-medium text-text-secondary">
             Step {currentStep === 'questions' ? 1 : currentStep === 'review' ? 2 : 3} of 3
           </span>
           {currentStep === 'questions' && (
-            <span className="text-sm text-gray-500">
+            <span className="text-lg text-text-tertiary">
               {answeredQuestions.size} of {questions.length} questions answered
             </span>
           )}
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-background-elevated rounded-full h-3 shadow-inner">
           <div 
-            className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+            className="bg-gradient-to-r from-primary-500 to-primary-400 h-3 rounded-full transition-all duration-500 shadow-lg"
             style={{ 
               width: currentStep === 'questions' 
                 ? `${getProgressPercentage()}%` 
@@ -156,22 +156,22 @@ const PolicyGenerator: React.FC<PolicyGeneratorProps> = ({ setPolicyData }) => {
       {/* Step Content */}
       {currentStep === 'questions' && (
         <div>
-          <div className="mb-6">
+          <div className="mb-8">
             {editingQuestionId && (
-              <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
-                <p className="text-sm text-yellow-800">
+              <div className="mb-6 p-4 bg-warning-light/10 border border-warning-dark/30 rounded-xl backdrop-blur-sm">
+                <p className="text-base text-warning-dark">
                   <strong>Editing mode:</strong> You're editing question {editingQuestionId}. 
                   After saving, you'll return to the review page.
                 </p>
               </div>
             )}
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-text-primary mb-4">
               {questions[currentQuestionIndex]?.question}
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-lg text-text-secondary mb-6 leading-relaxed">
               {questions[currentQuestionIndex]?.guidance}
             </p>
-            <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+            <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-primary-500 to-primary-400 text-black shadow-lg">
               {getCurrentGroup()}
             </div>
           </div>
