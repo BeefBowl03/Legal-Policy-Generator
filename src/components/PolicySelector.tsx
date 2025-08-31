@@ -86,11 +86,11 @@ const PolicySelector: React.FC<PolicySelectorProps> = ({ policyData, onBack }) =
           </ol>
         </div>
         
-                 <div className="mt-6 sm:mt-8 text-center">
-           <p className="text-primary-500 text-sm sm:text-base">
-             💡 <strong>Tip:</strong> You can now copy the HTML code below and follow these steps to add your policy to Shopify!
-           </p>
-         </div>
+                                                                       <div className="mt-6 sm:mt-8 text-center">
+             <p className="text-primary-500 text-sm sm:text-base sm:whitespace-nowrap">
+               💡 <strong>Tip:</strong> You can now copy the HTML code below and follow these steps to add your policy to Shopify!
+             </p>
+           </div>
       </div>
 
              <div className="mb-8 sm:mb-10">
