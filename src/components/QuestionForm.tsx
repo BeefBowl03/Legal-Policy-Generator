@@ -261,13 +261,13 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
         )}
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex space-x-3">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           {canGoBack && (
             <button
               type="button"
               onClick={onBack}
-              className="px-6 py-3 text-base font-medium text-text-primary bg-background-elevated border border-border-elevated rounded-lg hover:bg-background-accent hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary transition-all duration-200"
+              className="px-6 py-3 text-base font-medium text-text-primary bg-background-elevated border border-border-elevated rounded-lg hover:bg-background-accent hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary transition-all duration-200 w-full sm:w-auto"
             >
               {isEditing ? 'Cancel Edit' : 'Back'}
             </button>
@@ -277,20 +277,20 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             <button
               type="button"
               onClick={handleSkip}
-              className="px-6 py-3 text-base font-medium text-text-primary bg-background-elevated border border-border-elevated rounded-lg hover:bg-background-accent hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary transition-all duration-200"
+              className="px-6 py-3 text-base font-medium text-text-primary bg-background-elevated border border-border-elevated rounded-lg hover:bg-background-accent hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary transition-all duration-200 w-full sm:w-auto"
             >
               Skip
             </button>
           )}
         </div>
 
-        <div className="flex space-x-3">
+        <div className="flex w-full sm:w-auto">
           {isLastQuestion ? (
             <button
               type="button"
               onClick={handleComplete}
               disabled={question.required && (!inputValue || inputValue === '')}
-              className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105"
+              className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
             >
               Complete
             </button>
@@ -298,7 +298,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             <button
               type="submit"
               disabled={question.required && (!inputValue || inputValue === '')}
-              className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105"
+              className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
             >
               Next
             </button>

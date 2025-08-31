@@ -126,22 +126,22 @@ const PolicyGenerator: React.FC<PolicyGeneratorProps> = ({ setPolicyData }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto content-padding">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Progress Bar */}
-      <div className="mb-10">
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-lg font-medium text-text-secondary">
+      <div className="mb-8 sm:mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 mb-4">
+          <span className="text-base sm:text-lg font-medium text-text-secondary">
             Step {currentStep === 'questions' ? 1 : currentStep === 'review' ? 2 : 3} of 3
           </span>
           {currentStep === 'questions' && (
-            <span className="text-lg text-text-tertiary">
+            <span className="text-sm sm:text-lg text-text-tertiary">
               {answeredQuestions.size} of {questions.length} questions answered
             </span>
           )}
         </div>
-        <div className="w-full bg-background-elevated rounded-full h-3 shadow-inner">
+        <div className="w-full bg-background-elevated rounded-full h-2 sm:h-3 shadow-inner">
           <div 
-            className="bg-gradient-to-r from-primary-500 to-primary-400 h-3 rounded-full transition-all duration-500 shadow-lg"
+            className="bg-gradient-to-r from-primary-500 to-primary-400 h-2 sm:h-3 rounded-full transition-all duration-500 shadow-lg"
             style={{ 
               width: currentStep === 'questions' 
                 ? `${getProgressPercentage()}%` 
@@ -156,22 +156,22 @@ const PolicyGenerator: React.FC<PolicyGeneratorProps> = ({ setPolicyData }) => {
       {/* Step Content */}
       {currentStep === 'questions' && (
         <div>
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             {editingQuestionId && (
-              <div className="mb-6 p-4 bg-warning-light/10 border border-warning-dark/30 rounded-xl backdrop-blur-sm">
-                <p className="text-base text-warning-dark">
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-warning-light/10 border border-warning-dark/30 rounded-xl backdrop-blur-sm">
+                <p className="text-sm sm:text-base text-warning-dark">
                   <strong>Editing mode:</strong> You're editing question {editingQuestionId}. 
                   After saving, you'll return to the review page.
                 </p>
               </div>
             )}
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-text-primary mb-3 sm:mb-4">
               {questions[currentQuestionIndex]?.question}
             </h2>
-            <p className="text-lg text-text-secondary mb-6 leading-relaxed">
+            <p className="text-base sm:text-lg text-text-secondary mb-4 sm:mb-6 leading-relaxed">
               {questions[currentQuestionIndex]?.guidance}
             </p>
-            <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-primary-500 to-primary-400 text-black shadow-lg">
+            <div className="inline-flex items-center px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-gradient-to-r from-primary-500 to-primary-400 text-black shadow-lg">
               {getCurrentGroup()}
             </div>
           </div>
