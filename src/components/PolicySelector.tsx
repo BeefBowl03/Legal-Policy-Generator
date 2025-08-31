@@ -31,8 +31,8 @@ const PolicySelector: React.FC<PolicySelectorProps> = ({ policyData, onBack }) =
       {/* Final Instructions */}
       <div className="mb-10 bg-gradient-to-br from-info-light/20 to-info-light/10 border border-info-dark/30 rounded-2xl p-8 backdrop-blur-sm shadow-premium">
         <div className="text-center mb-8">
-          <h3 className="text-3xl font-bold text-info-dark mb-4">🎉 All Set!</h3>
-          <p className="text-info-dark text-xl">Here's what to do next:</p>
+          <h3 className="text-3xl font-bold text-primary-500 mb-4">🎉 All Set!</h3>
+          <p className="text-primary-500 text-xl">Here's what to do next:</p>
         </div>
         
         <div className="max-w-3xl mx-auto">
@@ -40,54 +40,54 @@ const PolicySelector: React.FC<PolicySelectorProps> = ({ policyData, onBack }) =
             <li className="flex items-start gap-4">
               <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">1</span>
               <div>
-                <span className="font-medium text-info-dark text-lg">In Shopify admin, go to</span>
-                <span className="text-info-dark text-lg"> <strong>Online Store → Pages</strong>.</span>
+                <span className="font-medium text-primary-500 text-lg">In Shopify admin, go to</span>
+                <span className="text-primary-500 text-lg"> <strong>Online Store → Pages</strong>.</span>
               </div>
             </li>
             
             <li className="flex items-start gap-4">
               <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">2</span>
               <div>
-                <span className="font-medium text-info-dark text-lg">Click</span>
-                <span className="text-info-dark text-lg"> <strong>Add page</strong>, name it after the policy (e.g. "Shipping Policy").</span>
+                <span className="font-medium text-primary-500 text-lg">Click</span>
+                <span className="text-primary-500 text-lg"> <strong>Add page</strong>, name it after the policy (e.g. "Shipping Policy").</span>
               </div>
             </li>
             
             <li className="flex items-start gap-4">
               <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">3</span>
               <div>
-                <span className="font-medium text-info-dark text-lg">Click the</span>
-                <span className="text-info-dark text-lg"> <strong>&lt;&gt;</strong> (Show HTML) icon in the top‑right of the editor.</span>
+                <span className="font-medium text-primary-500 text-lg">Click the</span>
+                <span className="text-primary-500 text-lg"> <strong>&lt;&gt;</strong> (Show HTML) icon in the top‑right of the editor.</span>
               </div>
             </li>
             
             <li className="flex items-start gap-4">
               <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">4</span>
               <div>
-                <span className="font-medium text-info-dark text-lg">Paste the generated HTML code into the HTML view.</span>
+                <span className="font-medium text-primary-500 text-lg">Paste the generated HTML code into the HTML view.</span>
               </div>
             </li>
             
             <li className="flex items-start gap-4">
               <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">5</span>
               <div>
-                <span className="font-medium text-info-dark text-lg">Click</span>
-                <span className="text-info-dark text-lg"> <strong>&lt;&gt;</strong> again to return to normal view and confirm rendering.</span>
+                <span className="font-medium text-primary-500 text-lg">Click</span>
+                <span className="text-primary-500 text-lg"> <strong>&lt;&gt;</strong> again to return to normal view and confirm rendering.</span>
               </div>
             </li>
             
             <li className="flex items-start gap-4">
               <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-400 text-black rounded-full flex items-center justify-center text-lg font-bold shadow-lg">6</span>
               <div>
-                <span className="font-medium text-info-dark text-lg">Click</span>
-                <span className="text-info-dark text-lg"> <strong>Save</strong>.</span>
+                <span className="font-medium text-primary-500 text-lg">Click</span>
+                <span className="text-primary-500 text-lg"> <strong>Save</strong>.</span>
               </div>
             </li>
           </ol>
         </div>
         
         <div className="mt-8 text-center">
-          <p className="text-info-dark text-base">
+          <p className="text-primary-500 text-base">
             💡 <strong>Tip:</strong> You can now copy the HTML code below and follow these steps to add your policy to Shopify!
           </p>
         </div>
@@ -119,7 +119,7 @@ const PolicySelector: React.FC<PolicySelectorProps> = ({ policyData, onBack }) =
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                       copiedPolicy === template.id
                         ? 'bg-success-light/20 text-success-dark border border-success-dark/30'
-                        : 'bg-background-elevated text-text-primary hover:bg-background-accent hover:border-primary-500 border border-border-elevated'
+                        : 'bg-background-elevated text-primary-500 hover:bg-background-accent hover:border-primary-500 border border-primary-500 shadow-lg hover:shadow-xl'
                     }`}
                   >
                     {copiedPolicy === template.id ? (

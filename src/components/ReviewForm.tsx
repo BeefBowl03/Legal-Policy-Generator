@@ -40,11 +40,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ formData, onBack, onComplete, o
         <p className="text-lg text-text-secondary mb-4">
           Please review all your answers before proceeding to generate policies.
         </p>
-        <div className="bg-info-light/10 border border-info-dark/30 rounded-xl p-6 max-w-2xl mx-auto backdrop-blur-sm">
-          <p className="text-info-dark font-medium">
-            💡 <strong>Tip:</strong> Click on any answer below to edit it. You'll be taken back to that specific question.
-          </p>
-        </div>
+
       </div>
 
       <div className="space-y-8">
@@ -64,18 +60,18 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ formData, onBack, onComplete, o
                       <p className="text-sm text-text-secondary mb-2">
                         {question.guidance}
                       </p>
-                      <div className="text-sm text-text-primary">
-                        <span className="font-semibold text-base text-primary-500">Edit your Answer: </span>
-                        <button
-                          onClick={() => onEditQuestion(question.id)}
-                          className={`${
-                            formData[question.field] ? 'text-success-dark hover:text-success-dark' : 'text-error-dark hover:text-error-dark'
-                          } underline cursor-pointer hover:bg-background-accent hover:border hover:border-primary-500 px-3 py-2 rounded-lg transition-all duration-200 text-base font-medium transform hover:scale-105 hover:shadow-subtle`}
-                          title="Click to edit this answer"
-                        >
-                          {getDisplayValue(question.field, formData[question.field])}
-                        </button>
-                      </div>
+                                                                    <div className="text-base text-text-primary">
+                         <span className="font-semibold text-lg text-primary-500">Edit your Answer: </span>
+                         <button
+                           onClick={() => onEditQuestion(question.id)}
+                           className={`${
+                             formData[question.field] ? 'text-success-dark hover:text-success-dark' : 'text-error-dark hover:text-error-dark'
+                           } underline cursor-pointer hover:bg-background-accent hover:border hover:border-primary-500 px-3 py-2 rounded-lg transition-all duration-200 text-lg font-medium transform hover:scale-105 hover:shadow-subtle`}
+                           title="Click to edit this answer"
+                         >
+                           {getDisplayValue(question.field, formData[question.field])}
+                         </button>
+                       </div>
                     </div>
                     <div className="mt-2 sm:mt-0 sm:ml-4">
                       {question.required && !formData[question.field] && (
