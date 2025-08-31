@@ -158,7 +158,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             ref={inputRef as React.RefObject<HTMLTextAreaElement>}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
             rows={4}
@@ -172,7 +172,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -185,7 +185,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="email"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -198,7 +198,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="url"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -211,7 +211,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />
@@ -223,12 +223,12 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             ref={inputRef as React.RefObject<HTMLSelectElement>}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary transition-all duration-200"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 transition-all duration-200"
             required={question.required}
           >
-            <option value="" className="bg-background-elevated text-text-primary">Select an option...</option>
+            <option value="" className="bg-white text-gray-900">Select an option...</option>
             {question.options?.map((option, index) => (
-              <option key={index} value={option} className="bg-background-elevated text-text-primary">
+              <option key={index} value={option} className="bg-white text-gray-900">
                 {option}
               </option>
             ))}
@@ -242,7 +242,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-background-elevated text-text-primary placeholder-text-muted transition-all duration-200"
+            className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 transition-all duration-200"
             placeholder={getPlaceholder()}
             required={question.required}
           />

@@ -155,13 +155,13 @@ code {
 
 /* Premium selection styling */
 ::selection {
-  background: rgba(244, 192, 68, 0.3);
-  color: #fafafa;
+  background: rgba(244, 192, 68, 0.8);
+  color: #000000;
 }
 
 ::-moz-selection {
-  background: rgba(244, 192, 68, 0.3);
-  color: #fafafa;
+  background: rgba(244, 192, 68, 0.8);
+  color: #000000;
 }
 
 /* Premium focus styles */
