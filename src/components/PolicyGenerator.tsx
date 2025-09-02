@@ -26,9 +26,9 @@ const PolicyGenerator: React.FC<PolicyGeneratorProps> = ({ setPolicyData }) => {
     
     // Auto-fill URLs when domain is provided
     if (formData.primaryWebsiteDomain) {
-      const baseUrl = formData.primaryWebsiteDomain.startsWith('http') 
-        ? formData.primaryWebsiteDomain 
-        : `https://${formData.primaryWebsiteDomain}`;
+      // Normalize domain to create proper base URL
+      let cleanDomain = formData.primaryWebsiteDomain.replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
+      const baseUrl = `https://${cleanDomain}`;
       
       if (!formData.faqPageURL || formData.faqPageURL === '') {
         setFormData(prev => ({ ...prev, faqPageURL: baseUrl }));

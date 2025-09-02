@@ -81,13 +81,58 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
 
   // Validation functions
   const validateDomain = (domain: string): boolean => {
-    const domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]?\.[a-zA-Z]{2,}$/;
-    return domainRegex.test(domain);
+    // Clean the domain: remove protocol, www., and trailing slashes
+    let cleanDomain = domain.trim().replace(/^https?:\/\//i, '').replace(/^www\./, '').replace(/\/.*$/, '');
+    
+    // Basic domain validation - must have at least one dot and valid characters
+    const domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9.-]{0,253}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/;
+    return domainRegex.test(cleanDomain) && cleanDomain.length > 0;
   };
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  };
+
+  const validateUrl = (url: string): boolean => {
+    try {
+      // Normalize the URL by adding https:// if no protocol is present
+      let normalizedUrl = url.trim();
+      if (!normalizedUrl.match(/^https?:\/\//i)) {
+        normalizedUrl = 'https://' + normalizedUrl;
+      }
+      
+      const urlObj = new URL(normalizedUrl);
+      // Check if it's a valid HTTP/HTTPS URL with a proper domain
+      return (urlObj.protocol === 'http:' || urlObj.protocol === 'https:') && 
+             urlObj.hostname.includes('.') &&
+             urlObj.hostname.length > 0;
+    } catch {
+      return false;
+    }
+  };
+
+  // Normalize URLs and domains before saving
+  const normalizeValue = (value: string): string => {
+    if (!value) return value;
+    
+    const trimmedValue = value.trim();
+    
+    if (question.type === 'url') {
+      // For URL fields, ensure they have a protocol
+      if (!trimmedValue.match(/^https?:\/\//i)) {
+        return 'https://' + trimmedValue;
+      }
+      return trimmedValue;
+    }
+    
+    if (question.type === 'domain') {
+      // For domain fields, remove protocol and www if present, then add www back if it was there
+      let cleanDomain = trimmedValue.replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
+      return cleanDomain;
+    }
+    
+    return trimmedValue;
   };
 
   const getValidationError = (): string | null => {
@@ -96,12 +141,17 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
     switch (question.type) {
       case 'domain':
         if (!validateDomain(inputValue)) {
-          return 'Please enter a valid domain with extension (e.g., example.com, mydomain.net)';
+          return 'Please enter a valid domain with extension (e.g., example.com, www.mydomain.net)';
         }
         break;
       case 'email':
         if (!validateEmail(inputValue)) {
           return 'Please enter a valid email address (e.g., user@domain.com)';
+        }
+        break;
+      case 'url':
+        if (!validateUrl(inputValue)) {
+          return 'Please enter a valid URL (e.g., example.com, www.example.com, https://example.com)';
         }
         break;
     }
@@ -117,8 +167,9 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
     }
     
     // Allow submission if the field is not required OR if it has a value
-    if (!question.required || (inputValue !== undefined && inputValue !== '')) {
-      onAnswer(question.id, inputValue || '');
+    if (!question.required || (inputValue !== undefined && inputValue !== '' && inputValue !== null)) {
+      const normalizedValue = normalizeValue(inputValue || '');
+      onAnswer(question.id, normalizedValue);
       // Clear the input after submitting
       setInputValue('');
       
@@ -142,8 +193,9 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
     }
     
     // Allow completion if the field is not required OR if it has a value
-    if (!question.required || (inputValue !== undefined && inputValue !== '')) {
-      onAnswer(question.id, inputValue || '');
+    if (!question.required || (inputValue !== undefined && inputValue !== '' && inputValue !== null)) {
+      const normalizedValue = normalizeValue(inputValue || '');
+      onAnswer(question.id, normalizedValue);
       // Clear the input after completing
       setInputValue('');
       onComplete();
@@ -195,7 +247,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
         return (
           <input
             ref={inputRef as React.RefObject<HTMLInputElement>}
-            type="url"
+            type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             className="w-full px-4 py-3 border border-border-subtle rounded-lg shadow-subtle focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500 transition-all duration-200"
@@ -289,7 +341,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             <button
               type="button"
               onClick={handleComplete}
-              disabled={question.required && (!inputValue || inputValue === '')}
+              disabled={question.required && (inputValue === '' || inputValue === null || inputValue === undefined)}
               className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
             >
               Complete
@@ -297,7 +349,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
           ) : (
             <button
               type="submit"
-              disabled={question.required && (!inputValue || inputValue === '')}
+              disabled={question.required && (inputValue === '' || inputValue === null || inputValue === undefined)}
               className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
             >
               Next

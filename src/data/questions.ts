@@ -178,7 +178,7 @@ export const questions: Question[] = [
     guidance: 'Type a number of days.',
     type: 'text',
     required: true,
-    defaultValue: 30,
+    defaultValue: '30',
     group: 'Returns and Policies'
   },
   {
