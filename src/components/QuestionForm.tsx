@@ -176,6 +176,9 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
       // If editing, go back to review page
       if (isEditing && onFinishEditing) {
         onFinishEditing();
+      } else if (isLastQuestion) {
+        // If this is the last question, complete the form
+        onComplete();
       }
     }
   };
@@ -339,7 +342,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
         <div className="flex w-full sm:w-auto">
           {isLastQuestion ? (
             <button
-              type="button"
+              type="submit"
               onClick={handleComplete}
               disabled={question.required && (inputValue === '' || inputValue === null || inputValue === undefined)}
               className="px-8 py-3 text-base font-medium text-black bg-gradient-to-r from-primary-500 to-primary-400 border border-transparent rounded-lg hover:from-primary-600 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-elevated hover:shadow-premium transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
